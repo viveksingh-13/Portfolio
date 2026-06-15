@@ -116,18 +116,6 @@ export const experience = [
 
 export const projects = [
   {
-    title: "Hotsports",
-    subtitle: "Real-Time Multiplayer Casino Platform",
-    description:
-      "Sustained 200+ concurrent WebSocket connections with under 100ms latency. Cut initial JS payload by 45% using dynamic code chunks and route-level splitting.",
-    tags: ["Next.js", "TypeScript", "Socket.io"],
-    year: "2025",
-    featured: true,
-    url: "https://www.hotsports.com/",
-    image: "/projects/hotsports.jpg",
-    gradient: "from-amber-500/20 to-orange-900/20",
-  },
-  {
     title: "Picki Trips",
     subtitle: "AI-Powered Travel Recommendation App",
     description:
@@ -140,23 +128,39 @@ export const projects = [
     gradient: "from-sky-500/20 to-blue-900/20",
   },
   {
-    title: "VaultX",
-    subtitle: "Fintech Web3 Platform",
+    title: "Bullman Equipment",
+    subtitle: "Premium Fitness E-Commerce Storefront",
     description:
-      "Client-side infrastructure for a fintech Web3 product. Delivered a 58% bundle size reduction and a scalable Tailwind component library adopted across the platform.",
-    tags: ["React.js", "TypeScript", "Vite", "Tailwind CSS"],
-    year: "2025",
-    featured: false,
-    gradient: "from-violet-500/20 to-purple-900/20",
+      "Built a multi-language Next.js e-commerce experience for premium fitness equipment — product catalog, category browsing, and a conversion-focused storefront optimized for performance and SEO across FR, EN, DE, and ES locales.",
+    tags: ["Next.js", "TypeScript", "E-Commerce", "Tailwind CSS"],
+    year: "2024",
+    featured: true,
+    url: "https://bullmanequipment.com/",
+    image: "/projects/bullman.webp",
+    gradient: "from-rose-500/20 to-red-900/20",
   },
   {
-    title: "TradeVu",
-    subtitle: "Trading Dashboard",
+    title: "Cupchairs",
+    subtitle: "Professional Music & Media Services",
     description:
-      "High-performance trading interface with optimized rendering pipelines, reusable UI primitives, and strict performance budgets for production fintech workloads.",
-    tags: ["React.js", "TypeScript", "Vite", "Performance"],
+      "Developed a Next.js platform for booking music reviews, shoutouts, reaction videos, interviews, and media production services — with SEO-optimized pages, service listings, and a polished client-facing experience.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "SEO"],
+    year: "2024",
+    featured: true,
+    url: "https://cupchairs.com/",
+    image: "/projects/cupchairs.png",
+    gradient: "from-violet-500/20 to-indigo-900/20",
+  },
+  {
+    title: "Hotsports",
+    subtitle: "Real-Time Multiplayer Casino Platform",
+    description:
+      "Sustained 200+ concurrent WebSocket connections with under 100ms latency. Cut initial JS payload by 45% using dynamic code chunks and route-level splitting.",
+    tags: ["Next.js", "TypeScript", "Socket.io"],
     year: "2025",
-    featured: false,
-    gradient: "from-emerald-500/20 to-teal-900/20",
+    featured: true,
+    url: "https://www.hotsports.com/",
+    image: "/projects/hotsports.jpg",
+    gradient: "from-amber-500/20 to-orange-900/20",
   },
 ];

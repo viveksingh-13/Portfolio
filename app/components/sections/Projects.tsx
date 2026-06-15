@@ -114,9 +114,6 @@ function ProjectCard({
 }
 
 export function Projects() {
-  const featured = projects.filter((p) => p.featured);
-  const others = projects.filter((p) => !p.featured);
-
   return (
     <section id="projects" className="relative py-28 lg:py-36">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-surface/30 to-transparent" />
@@ -128,16 +125,8 @@ export function Projects() {
           subtitle="Production applications I've built — click to visit live sites."
         />
 
-        <StaggerContainer className="grid gap-5 lg:grid-cols-2">
-          {featured.map((project) => (
-            <StaggerItem key={project.title} className="lg:col-span-1">
-              <ProjectCard project={project} featured />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        <StaggerContainer className="mt-5 grid gap-5 sm:grid-cols-2" staggerDelay={0.08}>
-          {others.map((project) => (
+        <StaggerContainer className="grid gap-5 sm:grid-cols-2">
+          {projects.map((project) => (
             <StaggerItem key={project.title}>
               <ProjectCard project={project} />
             </StaggerItem>
