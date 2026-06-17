@@ -2,9 +2,17 @@
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, useEffect } from "react";
-import { navLinks } from "../../data/portfolio";
+import { navLinks, siteConfig } from "../../data/portfolio";
 
-const sectionIds = ["about", "skills", "experience", "projects", "contact"];
+const sectionIds = [
+  "about",
+  "skills",
+  "experience",
+  "projects",
+  "github",
+  "testimonials",
+  "contact",
+];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -44,29 +52,27 @@ export function Navbar() {
 
   return (
     <motion.header
-      className={`fixed top-0 right-0 left-0 z-50 transition-colors duration-300 ${
-        scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-xl"
-          : "bg-transparent"
+      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
+        scrolled ? "border-b border-border glass-strong" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
     >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-8">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <a
           href="#"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="font-[family-name:var(--font-syne)] text-lg font-bold tracking-tight text-foreground transition-colors hover:text-accent"
+          className="text-lg font-bold tracking-tight text-foreground transition-colors hover:text-accent"
           style={{ fontFamily: "var(--font-syne)" }}
         >
           VS<span className="text-accent">.</span>
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex">
           {navLinks.map((link) => {
             const id = link.href.replace("#", "");
             const isActive = activeSection === id;
@@ -78,7 +84,7 @@ export function Navbar() {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className={`relative rounded-lg px-4 py-2 text-sm font-medium transition-colors ${
+                  className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                     isActive ? "text-foreground" : "text-muted hover:text-foreground"
                   }`}
                 >
@@ -97,21 +103,19 @@ export function Navbar() {
         </ul>
 
         <a
-          href="#contact"
-          onClick={(e) => {
-            e.preventDefault();
-            handleNavClick("#contact");
-          }}
-          className="hidden rounded-full border border-border bg-surface-elevated px-5 py-2 text-sm font-medium text-foreground transition-all hover:border-accent/30 hover:bg-accent-muted md:inline-flex"
+          href={siteConfig.resumeUrl}
+          download={siteConfig.resumeDownloadName}
+          className="glass hidden rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-all hover:border-accent/30 hover:bg-accent-muted lg:inline-flex"
         >
-          Let&apos;s talk
+          Resume
         </a>
 
         <button
           type="button"
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-border md:hidden"
+          className="glass flex h-10 w-10 items-center justify-center rounded-lg border border-border lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           <div className="flex w-5 flex-col gap-1.5">
             <span
@@ -131,10 +135,9 @@ export function Navbar() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="border-b border-border bg-background/95 backdrop-blur-xl md:hidden"
+          className="border-b border-border glass-strong lg:hidden"
         >
-          <ul className="flex flex-col gap-1 px-6 py-4">
+          <ul className="flex flex-col gap-1 px-5 py-4">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
@@ -143,12 +146,21 @@ export function Navbar() {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="block rounded-lg px-4 py-3 text-sm font-medium text-muted transition-colors hover:bg-surface-elevated hover:text-foreground"
+                  className="block rounded-lg px-4 py-3 text-sm font-medium text-muted transition-colors hover:bg-white/[0.04] hover:text-foreground"
                 >
                   {link.label}
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href={siteConfig.resumeUrl}
+                download={siteConfig.resumeDownloadName}
+                className="block rounded-lg px-4 py-3 text-sm font-medium text-accent"
+              >
+                Download Resume
+              </a>
+            </li>
           </ul>
         </motion.div>
       )}

@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vivek Singh — Frontend Engineer | React.js | Next.js",
+  title: "Vivek Singh — Frontend Engineer",
   description:
-    "Portfolio of Vivek Singh, a frontend engineer with 3.5+ years building scalable web applications with React.js, Next.js, and TypeScript.",
+    "Frontend Engineer with 3.5+ years building fast, scalable web experiences with React, Next.js, TypeScript, and Node.js.",
   keywords: [
     "frontend engineer",
     "react developer",

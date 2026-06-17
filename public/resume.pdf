@@ -1,0 +1,50 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1180 >>
+stream
+BT /F1 10 Tf 48 760 Td (Vivek Singh) Tj ET
+BT /F1 10 Tf 48 746 Td (Frontend Engineer) Tj ET
+BT /F1 10 Tf 48 732 Td () Tj ET
+BT /F1 10 Tf 48 718 Td (Email: viveks0444@gmail.com) Tj ET
+BT /F1 10 Tf 48 704 Td (Phone: +91 88946-19995) Tj ET
+BT /F1 10 Tf 48 690 Td (Location: Chandigarh, India) Tj ET
+BT /F1 10 Tf 48 676 Td (LinkedIn: linkedin.com/in/vivek-singh13) Tj ET
+BT /F1 10 Tf 48 662 Td (GitHub: github.com/viveks0444) Tj ET
+BT /F1 10 Tf 48 648 Td () Tj ET
+BT /F1 10 Tf 48 634 Td (SUMMARY) Tj ET
+BT /F1 10 Tf 48 620 Td (Frontend Engineer with 3.5+ years building scalable, high-performance) Tj ET
+BT /F1 10 Tf 48 606 Td (web apps using React, Next.js, TypeScript, and Node.js.) Tj ET
+BT /F1 10 Tf 48 592 Td () Tj ET
+BT /F1 10 Tf 48 578 Td (EXPERIENCE) Tj ET
+BT /F1 10 Tf 48 564 Td (Antier Solutions - Software Developer, Frontend \(Nov 2025 - Present\)) Tj ET
+BT /F1 10 Tf 48 550 Td (Matrix Marketers - Software Developer, Frontend \(May 2024 - Jul 2025\)) Tj ET
+BT /F1 10 Tf 48 536 Td (SoftRadix Technologies - Frontend Developer \(Aug 2022 - May 2024\)) Tj ET
+BT /F1 10 Tf 48 522 Td () Tj ET
+BT /F1 10 Tf 48 508 Td (Replace public/resume.pdf with your full resume PDF.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001473 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1543
+%%EOF

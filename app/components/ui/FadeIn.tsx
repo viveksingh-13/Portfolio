@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, type ReactNode } from "react";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
 
 type FadeInProps = {
   children: ReactNode;
@@ -12,10 +13,10 @@ type FadeInProps = {
 };
 
 const directionOffset = {
-  up: { y: 32 },
-  down: { y: -32 },
-  left: { x: 32 },
-  right: { x: -32 },
+  up: { y: 28 },
+  down: { y: -28 },
+  left: { x: 28 },
+  right: { x: -28 },
   none: {},
 };
 
@@ -24,11 +25,16 @@ export function FadeIn({
   className = "",
   delay = 0,
   direction = "up",
-  duration = 0.6,
+  duration = 0.55,
 }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+  const reducedMotion = useReducedMotion();
   const offset = directionOffset[direction];
+
+  if (reducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -52,10 +58,15 @@ type StaggerContainerProps = {
 export function StaggerContainer({
   children,
   className = "",
-  staggerDelay = 0.1,
+  staggerDelay = 0.08,
 }: StaggerContainerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const reducedMotion = useReducedMotion();
+
+  if (reducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -82,11 +93,17 @@ export function StaggerItem({
   children: ReactNode;
   className?: string;
 }) {
+  const reducedMotion = useReducedMotion();
+
+  if (reducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       className={className}
       variants={{
-        hidden: { opacity: 0, y: 24 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
           opacity: 1,
           y: 0,

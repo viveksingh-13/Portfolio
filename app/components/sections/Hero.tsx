@@ -1,164 +1,120 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { siteConfig, stats } from "../../data/portfolio";
-import { AnimatedCounter } from "../ui/AnimatedCounter";
+import { ArrowDown, ArrowRight, Download } from "lucide-react";
+import { siteConfig } from "../../data/portfolio";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { FadeIn } from "../ui/FadeIn";
 import { FloatingOrbs } from "../ui/FloatingOrbs";
+import { LetterReveal } from "../ui/LetterReveal";
+import { MagneticButton } from "../ui/MagneticButton";
+import { ProfileCard } from "../ui/ProfileCard";
+import { SocialLinks } from "../ui/SocialLinks";
+
+function scrollTo(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
 
 export function Hero() {
+  const reducedMotion = useReducedMotion();
+
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden">
+    <section className="relative flex min-h-[100dvh] items-center overflow-hidden">
       <FloatingOrbs />
-      <div className="grid-pattern absolute inset-0 opacity-40" aria-hidden />
+      <div className="hero-gradient absolute inset-0" aria-hidden />
+      <div className="grid-pattern-animated absolute inset-0 opacity-70" aria-hidden />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pt-24 pb-20 lg:px-8">
-        <div className="grid items-center gap-16 lg:grid-cols-[1fr_auto]">
-          <div>
-            <FadeIn delay={0.1}>
-              <p className="mb-6 font-mono text-sm tracking-widest text-accent uppercase">
-                {siteConfig.role}
-              </p>
-            </FadeIn>
+      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pt-28 pb-24 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:pt-32">
+        <div>
+          <FadeIn delay={0.05}>
+            <p className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-border glass px-4 py-2 font-mono text-xs tracking-widest text-muted uppercase">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.7)]" />
+              </span>
+              Available For Opportunities
+            </p>
+          </FadeIn>
 
-            <FadeIn delay={0.2}>
-              <h1
-                className="mb-6 text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
-                style={{ fontFamily: "var(--font-syne)" }}
+          <h1
+            className="mb-4 text-[clamp(2.75rem,7vw,4.5rem)] leading-[1.02] font-bold tracking-[-0.03em]"
+            style={{ fontFamily: "var(--font-syne)" }}
+          >
+            <LetterReveal text={siteConfig.name} className="gradient-text" />
+          </h1>
+
+          <FadeIn delay={0.45}>
+            <p
+              className="mb-5 text-xl font-medium tracking-tight text-foreground/90 sm:text-2xl"
+              style={{ fontFamily: "var(--font-syne)" }}
+            >
+              {siteConfig.role}
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.55}>
+            <p className="mb-10 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
+              {siteConfig.valueProposition}
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.65}>
+            <div className="mb-8 flex flex-wrap items-center gap-3 sm:gap-4">
+              <MagneticButton
+                href="#projects"
+                variant="primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo("projects");
+                }}
               >
-                <span className="text-foreground">Vivek</span>
-                <br />
-                <span className="gradient-text">Singh</span>
-              </h1>
-            </FadeIn>
-
-            <FadeIn delay={0.35}>
-              <p className="mb-10 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">
-                {siteConfig.tagline}
-              </p>
-            </FadeIn>
-
-            <FadeIn delay={0.45}>
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href="#projects"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("projects")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-transform hover:scale-[1.02]"
-                >
-                  View my work
-                  <motion.span
-                    className="inline-block"
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
-                    →
-                  </motion.span>
-                </a>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("contact")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="inline-flex items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-medium text-foreground transition-all hover:border-accent/40 hover:bg-accent-muted"
-                >
-                  Get in touch
-                </a>
-              </div>
-            </FadeIn>
-          </div>
-
-          <FadeIn delay={0.5} direction="left" className="hidden lg:block">
-            <div className="relative">
-              <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-violet-500/10 to-sky-500/10 blur-2xl" />
-              <div className="relative rounded-2xl border border-border bg-surface-elevated/80 p-8 backdrop-blur-sm">
-                <div className="mb-6 flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-amber-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
-                  <span className="ml-2 font-mono text-xs text-muted">
-                    portfolio.tsx
-                  </span>
-                </div>
-                <pre className="font-mono text-sm leading-relaxed">
-                  <code>
-                    <span className="text-violet-400">const</span>{" "}
-                    <span className="text-sky-300">engineer</span>{" "}
-                    <span className="text-muted">=</span>{" "}
-                    <span className="text-amber-300">{`{`}</span>
-                    {"\n"}
-                    {"  "}
-                    <span className="text-emerald-400">name</span>
-                    <span className="text-muted">:</span>{" "}
-                    <span className="text-emerald-300">
-                      &apos;Vivek Singh&apos;
-                    </span>
-                    <span className="text-muted">,</span>
-                    {"\n"}
-                    {"  "}
-                    <span className="text-emerald-400">role</span>
-                    <span className="text-muted">:</span>{" "}
-                    <span className="text-emerald-300">
-                      &apos;Frontend Engineer&apos;
-                    </span>
-                    <span className="text-muted">,</span>
-                    {"\n"}
-                    {"  "}
-                    <span className="text-emerald-400">stack</span>
-                    <span className="text-muted">:</span>{" "}
-                    <span className="text-emerald-300">
-                      [&apos;React&apos;, &apos;Next.js&apos;, &apos;TS&apos;]
-                    </span>
-                    <span className="text-muted">,</span>
-                    {"\n"}
-                    <span className="text-amber-300">{`}`}</span>
-                  </code>
-                </pre>
-              </div>
+                View Projects
+                <ArrowRight className="h-4 w-4" aria-hidden />
+              </MagneticButton>
+              <MagneticButton
+                href={siteConfig.resumeUrl}
+                variant="secondary"
+                download={siteConfig.resumeDownloadName}
+              >
+                Download Resume
+                <Download className="h-4 w-4" aria-hidden />
+              </MagneticButton>
+              <MagneticButton
+                href="#contact"
+                variant="ghost"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo("contact");
+                }}
+              >
+                Contact Me
+              </MagneticButton>
             </div>
           </FadeIn>
+
+          <SocialLinks />
         </div>
 
-        <FadeIn delay={0.6} className="mt-20">
-          <div className="grid grid-cols-2 gap-6 border-t border-border pt-10 sm:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center sm:text-left">
-                <p
-                  className="text-3xl font-bold text-foreground sm:text-4xl"
-                  style={{ fontFamily: "var(--font-syne)" }}
-                >
-                  <AnimatedCounter
-                    value={stat.value}
-                    suffix={stat.suffix}
-                    decimals={"decimals" in stat ? stat.decimals : 0}
-                  />
-                </p>
-                <p className="mt-1 text-sm text-muted">{stat.label}</p>
-              </div>
-            ))}
-          </div>
+        <FadeIn delay={0.3} direction="left" className="hidden lg:block">
+          <ProfileCard />
         </FadeIn>
+      </div>
 
+      {!reducedMotion && (
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 sm:bottom-8"
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          aria-hidden
         >
           <div className="flex flex-col items-center gap-2 text-muted">
-            <span className="font-mono text-xs tracking-widest uppercase">
+            <span className="font-mono text-[10px] tracking-[0.2em] uppercase">
               Scroll
             </span>
-            <div className="h-8 w-px bg-gradient-to-b from-muted to-transparent" />
+            <ArrowDown className="h-4 w-4 opacity-60" />
           </div>
         </motion.div>
-      </div>
+      )}
     </section>
   );
 }
